@@ -168,7 +168,7 @@ export default function SectionHero(props) {
                     </Typography>
                 </Grid>
                 <Grid item style={{marginBottom:"8em"}}>
-                    <Avatar alt={"founder"} src={profile} className={classes.avatar}></Avatar>
+                    <Avatar alt={"founder"} src={profile} className={classes.avatar}/>
                 </Grid>
                 <Grid item container>
                     <Grid item container direction={"column"} lg>
