@@ -157,7 +157,7 @@ export default function LandingPage(props) {
                         </Typography>
                         <Grid container justify={"center"} className={classes.buttonContainer}>
                             <Grid item>
-                                <Button component={Link} to={"/estimate"}
+                                <Button component={Link} to={"/estimates"}
                                     className={classes.estimateButton}
                                         variant={"contained"}
                                         onClick={() => props.setValue(5)}

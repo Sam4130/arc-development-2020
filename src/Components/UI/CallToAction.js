@@ -89,7 +89,7 @@
                         </Typography>
                     </Grid>
                     <Grid contianer justify={matchesSM ? "center" : undefined} item>
-                        <Button component={Link} to={"/estimate"}
+                        <Button component={Link} to={"/estimates"}
                             variant={"outlined"}
                                 className={classes.learnButton}
                                 onClick={() => props.setValue(2)}>
@@ -102,7 +102,7 @@
                 </Grid>
             </Grid>
             <Grid item>
-                <Button component={Link} to={"/estimate"}
+                <Button component={Link} to={"/estimates"}
                     variant={"contained"} className={classes.estimateButton}
                         onClick={() => props.setValue(5)}>Free Estimate</Button>
             </Grid>
