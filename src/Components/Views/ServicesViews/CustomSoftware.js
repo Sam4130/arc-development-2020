@@ -39,6 +39,10 @@ const useStyles = makeStyles(theme =>({
     rowContainer:{
         paddingLeft: "5em",
         paddingRight: "5em",
+        [theme.breakpoints.down("md")] :{
+            paddingRight: "2.5em",
+            paddingLeft: "2.5em"
+        },
         [theme.breakpoints.down("sm")]: {
             paddingLeft:"1.5em",
             paddingRight:"1.5em"
@@ -55,9 +59,6 @@ const useStyles = makeStyles(theme =>({
     digitalContainer:{
         position:"absolute",
         paddingLeft:"8.5em",
-        [theme.breakpoints.down("md")]: {
-            paddingLeft:"4em"
-        },
         [theme.breakpoints.down("xs")]: {
             marginTop: "5em",
             position: "relative",
@@ -75,7 +76,7 @@ export default function CustomService(props) {
     const theme = useTheme();
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-
+    const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
     const documentsOptions = {
         loop: true,
         autoplay: false,
@@ -111,7 +112,9 @@ export default function CustomService(props) {
     return(
         <Grid container direction={"column"} className={classes.rowContainer}>
             {/*----Custom Software Section------*/}
-            <Grid item container direction={"row"}
+            <Grid item
+                  container
+                  direction={"row"}
                   justify={matchesMD ? "center" : undefined}>
                 <Hidden mdDown>
                     <Grid item className={classes.arrowContainer}
@@ -248,8 +251,8 @@ export default function CustomService(props) {
                     <Grid item md>
                         <Tooltip disableFocusListener title={"Digital Downloads"}>
                         <Lottie options={documentsOptions}
-                                isStopped={true}
-                                style={{maxHeight: 325, maxWidth: 280, }} />
+                                isStopped={false}
+                                style={{maxHeight: 325, maxWidth: 280, paddingLeft: "10em"}} />
                         </Tooltip>
                     </Grid>
                 {/*---end of image ---*/}
@@ -263,19 +266,23 @@ export default function CustomService(props) {
                       md>
                         <Grid item md>
                             <Lottie options={scaleOptions}
-                                    isStopped={true}
-                                    style={{maxHeight: 260, maxWidth: 280}} />
+                                    isStopped={false}
+                                    style={{maxHeight: 260, maxWidth: 280, paddingLeft:matchesXS ? "2em" : "10em"}}
+                                    align={matchesMD ? "center": undefined}/>
                         </Grid>
                         {/*---end of image ---*/}
 
-                        <Grid item container direction={"column"} md align={"right"}>
+                        <Grid item container direction={"column"} md align={ matchesXS ? "center" : "right"}
+                              style={{paddingLeft:matchesXS ? "2em" : "8em", paddingTop: matchesSM ? "8em" : undefined}}>
                             <Grid item>
                                 <Typography align={matchesMD ? "center" : undefined} variant={"h4"}>
                                     Scale
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography align={matchesMD ? "center" : undefined} variant={"body1"} paragraph >
+                                <Typography align={matchesMD ? "center" : undefined}
+                                            variant={"body1"}
+                                            style={{ paddingRight: matchesXS ? ".5em" : undefined}} paragraph >
                                     Whether you’re a large brand, just getting started,
                                     or taking off right now, our application
                                     architecture ensures pain-free growth and reliability.
@@ -289,7 +296,7 @@ export default function CustomService(props) {
             <Grid item container direction={"row"}>
                 <Grid item container direction={"column"} alignItems={"center"}>
                     <Grid item>
-                        <img src={roots} alt={"tree with roots "} height={"450em"} width={"450em"}/>
+                        <img src={roots} alt={"tree with roots "} height={ matchesXS ? "237em" : "450em"} width={ matchesXS ? "345em" : "450em"}/>
                     </Grid>
                     <Grid item className={classes.itemContainer}>
                         <Typography align={matchesMD ? "center" : undefined} variant={"h4"} align={"center"} gutterBottom> Root-Cause Analysis</Typography>
@@ -307,16 +314,18 @@ export default function CustomService(props) {
         {/*----Automation Section------*/}
             <Grid item
                   contianer
-                  direction={ matchesMD ? "column" : "row"}
-                  alignItems={matchesMD ? "center" : undefined}
+                  direction={"row"}
+                  style={{marginBottom: "10em"}}
                   justify={"space-around"}
                  >
                 <Grid item container
                       className={classes.itemContainer}
-                      style={{marginBottom: matchesMD ? "15em" : 0, paddingLeft:"10.5em"}} md>
+                      justify={"space-around"}
+                      style={{marginBottom: matchesMD ? "4em" : 0, paddingLeft:"10.5em"}} md>
                     <Grid item container direction={"column"} md>
                         <Grid item>
-                            <Typography align={matchesMD ? "center" : undefined} variant={"h4"} style={{paddingBottom: matchesMD ? ".5em" : "1.5em" }}>
+                            <Typography align={matchesMD ? "center" : undefined} variant={"h4"}
+                                        style={{paddingBottom: matchesMD ? ".5em" : "1.5em" }}>
                                 Automation
                             </Typography>
                         </Grid>
@@ -335,10 +344,10 @@ export default function CustomService(props) {
                         </Grid>
                         {/*--end of body item--*/}
                     </Grid>
-                    <Grid item md>
+                    <Grid item md >
                         <Lottie options={automationOptions}
-                                isStopped={true}
-                                style={{maxHeight: 325, maxWidth: 280 }} />
+                                isStopped={false}
+                                style={{maxHeight: 325, maxWidth: 280 , paddingLeft:"5em"}} />
                     </Grid>
                     {/*---end of image ---*/}
                 </Grid>
@@ -346,7 +355,7 @@ export default function CustomService(props) {
                 <Grid item container className={classes.itemContainer} md>
                     <Grid item md>
                         <Lottie options={uxOptions}
-                                isStopped={true}
+                                isStopped={false}
                                 style={{ maxHeight: 310, maxWidth: 155 }} />
                     </Grid>
                     {/*---end of image ---*/}
@@ -374,8 +383,10 @@ export default function CustomService(props) {
                 </Grid>
                 {/*----end of item continaer-----*/}
             </Grid>
-            <Grid item>
-                <CallToAction setValue={props.setValue}/>
+            <Grid item style={{paddingRight: matchesMD ? "3.85em" : 0 }}>
+                <Hidden xsDown>
+                    <CallToAction setValue={props.setValue}/>
+                </Hidden>
             </Grid>
         </Grid>
     //    end of top row

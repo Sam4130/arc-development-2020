@@ -9,6 +9,7 @@ import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 
 //animations
+import integrationAnimation from '../../../animations/integrationAnimation/data'
 // core components
 import CallToAction from "../../UI/CallToAction";
 //images
@@ -17,6 +18,7 @@ import iphoneImage from '../../../assets/mobileIcon.svg';
 import swissArmy from '../../../assets/swissKnife.svg';
 import extendedAccess from '../../../assets/extendAccess.svg';
 import increaseEngagement from '../../../assets/increaseEngagement.svg';
+import documentsAnimation from "../../../animations/documentsAnimation/data";
 
 
 
@@ -53,11 +55,21 @@ export default function IosDevelopment(props) {
     const theme = useTheme();
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+    const defaultOptions = {
+        loop: true,
+        autoplay: false,
+        animationData: integrationAnimation,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        },
+    };
 
     return(
         <Grid container direction={"column"} className={classes.mainContainer}>
             <Grid item  container direction={"row"}
-                  justify={matchesMD ? "center" : undefined}>
+                  justify={matchesMD ? "center" : undefined}
+                    style={{paddingRight: matchesMD ? "3.85em" : 0}}>
                 <Hidden mdDown>
                     <Grid item className={classes.arrowContainer}
                           style={{marginRight: "1em", marginLeft:"-3.5em"}}>
@@ -97,15 +109,20 @@ export default function IosDevelopment(props) {
                   container
                   direction={"row"}
                   justify={"center"}
-                  style={{ marginTop: "15em", marginBottom: "20em"}}>
+                  style={{ marginTop: "15em", marginBottom: "20em",
+                  width:matchesXS ?  "22em": undefined}}>
                 <Grid
                     item container
                     direction={"column"}
                     md
                     alignItems={"left"}
-                    style={{maxWidth: "40em", marginTop: matchesSM ? "10em" : 0, marginBottom: matchesSM ? "10em" : 0 }}>
+                    style={{maxWidth: "40em",
+                        marginTop: matchesSM ? "10em" : 0,
+                        marginBottom: matchesSM ? "10em" : 0,
+                      paddingRight: matchesMD ? "3.85em" : 0}}>
                     <Grid item>
-                        <Typography variant={"h4"}>Integration</Typography>
+                        <Typography variant={"h4"}
+                                    align={matchesMD ? "center" : "left"}>Integration</Typography>
                     </Grid>
                     <Grid item>
                         <Typography align={matchesMD ? "center" : "left"} variant={"body1"} paragraph>
@@ -123,9 +140,12 @@ export default function IosDevelopment(props) {
                     direction={"column"}
                     md
                     alignItems={"center"}
-                    style={{maxWidth: "40em", marginTop: matchesSM ? "8em" : 0, marginBottom: matchesSM ? "8em" : 0 }}>
-                    <Grid item>
-                        <img src={iphoneImage} alt={"phone screen Shot"}/>
+                    style={{maxWidth: "40em", marginTop: matchesSM ? "4em" : 0,
+                        marginBottom: matchesSM ? "4em" : 0 }}>
+                    <Grid item md >
+                        <Lottie options={defaultOptions}
+                                isStopped={true}
+                                style={{maxWidth:"20em"}}/>
                     </Grid>
                 </Grid>
                 <Grid
@@ -133,9 +153,13 @@ export default function IosDevelopment(props) {
                     direction={"column"}
                     md
                     alignItems={"right"}
-                    style={{maxWidth: "40em", marginTop: matchesSM ? "8em" : 0, marginBottom: matchesSM ? "8em" : 0 }}>
+                    style={{maxWidth: "40em", marginTop: matchesSM ? "8em" : 0,
+                        marginBottom: matchesSM ? "8em" : 0,
+                        paddingRight: matchesMD ? "3.85em" : 0}}>
                     <Grid item>
-                        <Typography variant={"h4"}>Simultaneous Platform Support </Typography>
+                        <Typography variant={"h4"} align={matchesMD ? "center" : undefined}>
+                            Simultaneous Platform Support
+                        </Typography>
                     </Grid>
                     <Grid item>
                         <Typography  align={matchesMD ? "center" : undefined} variant={"body1"}>
@@ -150,63 +174,89 @@ export default function IosDevelopment(props) {
                 </Grid>
             </Grid>
             {/*----end of integration column layout---*/}
-            <Grid
-                item
-                container
-                direction={"row"}
-                justify={"center"}
-                style={{ marginTop: "15em", marginBottom: "20em"}}>
-                {[0].map((value =>
-                        <Grid key={value} className={classes.control}>
-                            <Grid item
-                                  container
-                                  direction={"column"}
-                                  md
-                                  alignItems={"center"}
-                                  style={{maxWidth: "30em", marginTop: matchesSM ? "8em" : 0, marginBottom: matchesSM ? "8em" : 0 }}>
-                                <Typography variant={"h4"}>Extended Functionality</Typography>
-                            </Grid>
-                            <Grid item>
-                                <img style={{maxHeight: matchesSM ? undefined : 500, maxWidth: matchesSM ? undefined : 280, paddingLeft:"1.75em"}} src={swissArmy} alt={"swiss-army-knife"}/>
-                            </Grid>
-                        </Grid>
-                    )
-                )}
-                {[1].map((value =>
-                            <Grid key={value} className={classes.control}>
-                                <Grid item
-                                      container
-                                      direction={"column"}
-                                      md
-                                      alignItems={"center"}
-                                      style={{maxWidth: "30em", marginTop: matchesSM ? "10em" : 0, marginBottom: matchesSM ? "5em" : 0 }}>
-                                    <Typography variant={"h4"}>Extend Access</Typography>
+
+            <Grid item container direction={matchesMD ? "row" : "column"} className={classes.rowContainer}>
+                <Grid
+                    item
+                    container
+                    direction={"row"}
+                    justify={"center"}
+                    style={{ marginTop: "15em", marginBottom: "20em", paddingRight: matchesMD ? "3.85em" : 0 }}>
+                    {[0].map((value =>
+                                <Grid key={value} className={classes.control}>
+                                    <Grid item
+                                          container
+                                          direction="column"
+                                          md
+                                          alignItems={"center"}
+                                          style={{maxWidth: "30em", marginTop: matchesSM ? "8em" : 0, marginBottom: matchesSM ? "8em" : 0 }}>
+                                        <Typography variant={"h4"}
+                                                    alignItems={"center"}
+                                                    style={{textAlign: matchesXS ? "center" : undefined,
+                                                        paddingLeft: matchesXS ? "2em" : 0 }}
+                                        >Extended Functionality</Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <img style={{maxHeight: matchesSM ? undefined : 500, maxWidth: matchesSM ? undefined : 280, paddingLeft:"1.75em"}} src={swissArmy} alt={"swiss-army-knife"}/>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <img style={{maxHeight: matchesSM ? undefined : 200, maxWidth: matchesSM ? undefined : 480, paddingTop:"2em" }} src={extendedAccess} alt={"extended-access-image"}/>
+                        )
+                    )}
+                    {[1].map((value =>
+                                <Grid key={value} className={classes.control}>
+                                    <Grid item
+                                          container
+                                          direction={"column"}
+                                          md
+                                          alignItems={"center"}
+                                          style={{maxWidth: "30em", marginTop: matchesSM ? "10em" : 0, marginBottom: matchesSM ? "5em" : 0 }}>
+                                        <Typography variant={"h4"} alignItems={"center"}
+                                                    style={{textAlign: matchesXS ? "center" : undefined,
+                                                        paddingLeft: matchesXS ? "2em" : 0,
+                                                       }}
+                                        >Extend Access</Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <img style={{
+                                            maxHeight: matchesSM ? undefined : 200,
+                                            maxWidth: matchesSM ? undefined : 480,
+                                            height: matchesXS ? 150 : undefined,
+                                            width: matchesXS ? 295: undefined,
+                                            paddingTop:"2em",
+                                            paddingLeft: matchesXS ? "4em" : undefined}} src={extendedAccess} alt={"extended-access-image"}/>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                    )
-                )}
-                {[1].map((value =>
-                            <Grid key={value} className={classes.control}>
-                                <Grid item
-                                      container
-                                      direction={"column"}
-                                      md
-                                      alignItems={"center"}
-                                      style={{maxWidth: "30em", marginTop: matchesSM ? "10em" : 0, marginBottom: matchesSM ? "10em" : 0 }}>
-                                    <Typography variant={"h4"}>Increase Engagement</Typography>
+                        )
+                    )}
+                    {[1].map((value =>
+                                <Grid key={value} className={classes.control}>
+                                    <Grid item
+                                          container
+                                          direction={"column"}
+                                          md
+                                          alignItems={"center"}
+                                          style={{maxWidth: "30em", marginTop: matchesSM ? "10em" : 0, marginBottom: matchesSM ? "10em" : 0 }}>
+                                        <Typography variant={"h4"}
+                                                    alignItems={"center"}
+                                                    style={{textAlign: matchesXS ? "center" : undefined,
+                                                        paddingLeft: matchesXS ? "2em" : 0,
+                                                    }}>
+                                            Increase Engagement</Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <img style={{maxHeight: matchesSM ? undefined : 500,
+                                            maxWidth: matchesSM ? undefined : 280,
+                                            paddingLeft: matchesXS ? "5em" : "2.5em" }}  src={increaseEngagement} alt={"increase-engagement-image"}/>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <img style={{maxHeight: matchesSM ? undefined : 500, maxWidth: matchesSM ? undefined : 280, paddingLeft:"2.5em" }}  src={increaseEngagement} alt={"increase-engagement-image"}/>
-                                </Grid>
-                            </Grid>
-                    )
-                )}
+                        )
+                    )}
+                </Grid>
             </Grid>
-            <Grid item>
+            <Grid item style={{paddingRight: matchesMD ? "3.85em" : 0 }}>
+                <Hidden xsDown>
                 <CallToAction setValue={props.setValue}/>
+                </Hidden>
             </Grid>
         {/*---end of call to action footer-----*/}
         </Grid>

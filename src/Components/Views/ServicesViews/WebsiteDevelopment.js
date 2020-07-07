@@ -218,10 +218,11 @@ export default function WebsiteDevelopment(props) {
                 </Grid>
             </Grid>
             {/*---search engine optimization----*/}
-            <Grid item>
-                <CallToAction setValue={props.setValue}/>
+            <Grid item style={{paddingRight: matchesMD ? "3.85em" : 0 }}>
+                <Hidden xsDown>
+                    <CallToAction setValue={props.setValue}/>
+                </Hidden>
             </Grid>
-            {/*---end of call to action footer-----*/}
         </Grid>
         //end of main containers
     );

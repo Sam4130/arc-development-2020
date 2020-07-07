@@ -4,6 +4,7 @@ import {BrowserRouter,Route, Switch } from "react-router-dom";
 
 // stylings compoents
 import theme from './UI/Theme';
+import Hidden from "@material-ui/core/Hidden";
 //core compoents
 import Header from './UI/Header';
 import Footer from './UI/Footer';
@@ -17,11 +18,13 @@ import Security from "./Views/ServicesViews/Security";
 import Contact from "./Views/FormsPages/Contact";
 import Estimate from "./Views/FormsPages/Estimate";
 import About from './Views/About'
+import useMediaQuery from "@material-ui/core/useMediaQuery/useMediaQuery";
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     // array to handel router
     const [value, setValue] = useState(0);
+
   return (
    <ThemeProvider theme={theme}>
        <BrowserRouter>
@@ -101,8 +104,11 @@ function App() {
                    />
                }/>
            </Switch>
-           <Footer value={value} setValue={setValue} selectedIndex={selectedIndex}
-                   setSelectedIndex={setSelectedIndex}/>
+           <Hidden xsDown>
+               <Footer value={value} setValue={setValue} selectedIndex={selectedIndex}
+                       setSelectedIndex={setSelectedIndex}/>
+           </Hidden>
+
        </BrowserRouter>
 
    </ThemeProvider>

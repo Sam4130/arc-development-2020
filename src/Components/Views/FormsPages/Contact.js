@@ -283,7 +283,8 @@ export default function Contact(props) {
                 </Grid>
             {/*-end of main item container-*/}
             </Grid>
-            <Dialog open={open} onClose={() => setOpen(false)} PaperProps={{style: {maxWidth:"100em", padding:"5em"}}}>
+            <Dialog open={open} onClose={() => setOpen(false)}
+                    PaperProps={{style: {maxWidth:"100em", padding:"5em"}}}>
                 <DialogContent>
                     <Grid container direction={"column"}>
                         <Grid item>
@@ -377,7 +378,7 @@ export default function Contact(props) {
                             </Typography>
                         </Grid>
                         <Grid contianer justify={matchesSM ? "center" : undefined} item>
-                            <Button component={Link} to={"/estimate"}
+                            <Button component={Link} to={"/estimates"}
                                     variant={"outlined"}
                                     className={classes.learnButton}
                                     onClick={() => props.setValue(2)}>
