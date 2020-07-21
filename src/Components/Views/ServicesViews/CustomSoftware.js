@@ -350,7 +350,7 @@ export default function CustomService(props) {
                     <Grid item md >
                         <Lottie options={automationOptions}
                                 isStopped={false}
-                                style={{maxHeight: 325, maxWidth: 280 , paddingLeft: matchesXS ? "3em" :    }} />
+                                style={{maxHeight: 325, maxWidth: 280 , paddingLeft: matchesXS ? "3em" : undefined }} />
                     </Grid>
                     {/*---end of image ---*/}
                 </Grid>
