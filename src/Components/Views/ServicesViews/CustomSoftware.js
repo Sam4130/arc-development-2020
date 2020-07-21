@@ -53,6 +53,9 @@ const useStyles = makeStyles(theme =>({
         [theme.breakpoints.down("md")]: {
           maxWidth:"40em"
         },
+        [theme.breakpoints.down("sm")] :{
+            maxWidth:"25em"
+        },
         paddingTop:"10em",
 
     },
@@ -267,8 +270,8 @@ export default function CustomService(props) {
                         <Grid item md>
                             <Lottie options={scaleOptions}
                                     isStopped={false}
-                                    style={{maxHeight: 260, maxWidth: 280, paddingLeft:matchesXS ? "2em" : "10em"}}
-                                    align={matchesMD ? "center": undefined}/>
+                                    style={{maxHeight: 260, maxWidth: 280, paddingLeft:matchesXS ? "5em" : "10em"}}
+                                    align={"center"}/>
                         </Grid>
                         {/*---end of image ---*/}
 
@@ -347,7 +350,7 @@ export default function CustomService(props) {
                     <Grid item md >
                         <Lottie options={automationOptions}
                                 isStopped={false}
-                                style={{maxHeight: 325, maxWidth: 280 , paddingLeft:"5em"}} />
+                                style={{maxHeight: 325, maxWidth: 280 , paddingLeft: matchesXS ? "3em" :    }} />
                     </Grid>
                     {/*---end of image ---*/}
                 </Grid>
