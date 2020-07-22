@@ -42,7 +42,8 @@ const useStyles = makeStyles(theme =>({
         paddingRight: "2em",
         [theme.breakpoints.down("sm")]: {
             paddingLeft:"1.5em",
-            paddingRight:"1.5em"
+            paddingRight:"1.5em",
+            maxWidth: "375px"
         },
     },
     itemContainer: {
@@ -66,6 +67,8 @@ const useStyles = makeStyles(theme =>({
         [theme.breakpoints.down("md")]: {
             maxWidth:"25em"
         },
+
+
     }
     })
 );
@@ -124,7 +127,8 @@ export default function Revolution(props) {
                 {/*---end of image ---*/}
 
                 <Grid item container
-                      justify={matchesMD ? "center" : undefined}
+                      justify={matchesMD ? "center" : "left"}
+                      style={{width: matchesSM ? "34em" : undefined}}
                       direction={"column"} md
                       align={"right"}>
                     <Grid item>

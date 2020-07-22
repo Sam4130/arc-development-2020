@@ -143,7 +143,7 @@ export default function WebsiteDevelopment(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item style={{marginLeft:"1em", maxWidth: matchesSM ? "10em" : "25em"}}>
+                <Grid item style={{marginLeft: matchesSM ? ".25em" : "1em", maxWidth: matchesSM ? "15em" : "25em"}}>
                     <Typography  className={classes.paragraphContainer} variant={"body1"} paragraph>
                         It’s no secret that people like to shop online.
                     </Typography>
@@ -168,7 +168,7 @@ export default function WebsiteDevelopment(props) {
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <img style={{marginLeft:"-2.75em"}}
+                            <img style={{marginLeft:"1.75em"}}
                                  src={outReach}
                                  alt={"horn making noise"}/>
                         </Grid>
@@ -205,7 +205,7 @@ export default function WebsiteDevelopment(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item style={{marginLeft:"1em", maxWidth: matchesSM ? "10em" : "30em"}}>
+                <Grid item style={{marginLeft:"1em", maxWidth: matchesSM ? "17em" : "30em"}}>
                     <Typography  className={classes.paragraphContainer} variant={"body1"} paragraph>
                         How often have you ever been to the second page of Google results?
                     </Typography>

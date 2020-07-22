@@ -166,7 +166,7 @@
                          </Grid>
                      </Grid>
                  </Grid>
-                 <Grid item style={{marginLeft:"1em", maxWidth: matchesSM ? "10em" : "25em"}}>
+                 <Grid item style={{marginLeft:"1em", maxWidth: matchesSM ? "15em" : "25em"}}>
                      <Typography  className={classes.paragraphContainer} variant={"body1"} paragraph>
                          It’s no secret that people like to shop online.
                      </Typography>
@@ -178,10 +178,10 @@
              {/*--end of e-commerce section----*/}
              <Grid item>
              {/*----Revolution Block----*/}
-             <Grid container style={{height: "79em",paddingTop:"8em"}}
+             <Grid container style={{height: "79em",paddingTop:"8em", maxWidth: matchesSM ? "20em" : undefined}}
                    alignItems={"center"}
                    justify={"center"}>
-                 <Card className={classes.revolutionCard}>
+                 <Card className={classes.revolutionCard} style={{maxWidth: matchesSM ? "19em" : undefined}}>
                      <CardContent>
                          <Grid container direction={"column"} style={{ textAlign: "center"}}>
                              <Grid item style={{textAlign: "center"}} >

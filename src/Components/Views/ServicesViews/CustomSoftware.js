@@ -113,7 +113,7 @@ export default function CustomService(props) {
         }
     };
     return(
-        <Grid container direction={"column"} className={classes.rowContainer}>
+        <Grid container direction={"column"} style={{width: matchesSM ? "28em" : undefined}} className={classes.rowContainer}>
             {/*----Custom Software Section------*/}
             <Grid item
                   container
@@ -294,7 +294,7 @@ export default function CustomService(props) {
                             {/*--end of body item--*/}
                         </Grid>
                 </Grid>
-            {/*----end of item continaer-----*/}
+            {/*----end of item container-----*/}
             </Grid>
             <Grid item container direction={"row"}>
                 <Grid item container direction={"column"} alignItems={"center"}>
@@ -324,7 +324,7 @@ export default function CustomService(props) {
                 <Grid item container
                       className={classes.itemContainer}
                       justify={"space-around"}
-                      style={{marginBottom: matchesMD ? "4em" : 0, paddingLeft:"10.5em"}} md>
+                      style={{marginBottom: matchesMD ? "4em" : 0, paddingLeft:matchesXS ? "0.5em" : "10.5em"}} md>
                     <Grid item container direction={"column"} md>
                         <Grid item>
                             <Typography align={matchesMD ? "center" : undefined} variant={"h4"}
@@ -356,10 +356,10 @@ export default function CustomService(props) {
                 </Grid>
                 {/*----end of item container----*/}
                 <Grid item container className={classes.itemContainer} md>
-                    <Grid item md>
+                    <Grid item style={{paddingLeft: matchesXS ? "7em" : undefined}} md>
                         <Lottie options={uxOptions}
                                 isStopped={false}
-                                style={{ maxHeight: 310, maxWidth: 155 }} />
+                                style={{ maxHeight: 310, maxWidth: 155, paddingBottom: matchesXS ? "3em" : undefined }} />
                     </Grid>
                     {/*---end of image ---*/}
 
